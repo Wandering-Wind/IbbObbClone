@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    public void JumpWASD(InputAction.CallbackContext context)
     {
         if (context.performed && IsGrounded())
         {
@@ -45,6 +45,19 @@ public class PlayerMovement : MonoBehaviour
         if(context.canceled && rbPlayer.velocity.y>0f)
         {
             rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.y*0.5f);
+        }
+    }
+
+    public void JumpArrows(InputAction.CallbackContext context)
+    {
+        if (context.performed && IsGrounded())
+        {
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpingPower);
+        }
+
+        if (context.canceled && rbPlayer.velocity.y > 0f)
+        {
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.y * 0.5f);
         }
     }
 
@@ -61,7 +74,12 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    public void Move(InputAction.CallbackContext context)
+    public void MoveWASD(InputAction.CallbackContext context)
+    {
+        //function tells us when an action was triggered
+        horizontal = context.ReadValue<Vector2>().x;
+    }
+    public void MoveARROWS(InputAction.CallbackContext context)
     {
         //function tells us when an action was triggered
         horizontal = context.ReadValue<Vector2>().x;
