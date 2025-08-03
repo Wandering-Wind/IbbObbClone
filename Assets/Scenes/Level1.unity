@@ -923,11 +923,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &410022442 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6773260042598144633, guid: 76c45f72573b7fb4c8f01bc87a8b75ef, type: 3}
-  m_PrefabInstance: {fileID: 1806058081}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &486980082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,11 +1021,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9837e2fc3c42a8c448707471718e1732, type: 3}
---- !u!4 &555804059 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7712568112015168996, guid: 49c120b456ad1a3499c8ca7d67c204b5, type: 3}
-  m_PrefabInstance: {fileID: 1006968590}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &581666789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1117,8 @@ GameObject:
   - component: {fileID: 598255399}
   - component: {fileID: 598255398}
   - component: {fileID: 598255400}
-  m_Layer: 0
+  - component: {fileID: 598255401}
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12456,6 +12447,33 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!50 &598255401
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598255396}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &624587932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12928,13 +12946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6127165831b911d43a3a66dd932a86f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWASD: {fileID: 555804059}
-  playerArrows: {fileID: 410022442}
-  maxFollowDistance: 15
-  zoomDistanceThreshold: 8
-  minZoom: 5
-  maxZoom: 10
-  cameraSpeed: 5
 --- !u!1 &799598984
 GameObject:
   m_ObjectHideFlags: 0
