@@ -670,6 +670,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  startPt: {fileID: 0}
 --- !u!114 &923067295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,6 +1442,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  startPt: {fileID: 0}
 --- !u!114 &1286679413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,6 +1723,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  startPt: {fileID: 0}
 --- !u!50 &1517753961
 Rigidbody2D:
   serializedVersion: 4
@@ -2093,6 +2096,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5242762025341917912, guid: a9b0feccc4a483b448d5b0fe84f2289b, type: 3}
+      propertyPath: pointPrefab
+      value: 
+      objectReference: {fileID: 1187418139662182668, guid: 100dd79883222124b99c7d4aa3b94002, type: 3}
     - target: {fileID: 7954706816733294465, guid: a9b0feccc4a483b448d5b0fe84f2289b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.0423625
@@ -2150,6 +2157,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 986035618654074694, guid: 66be3299a571d7c408433b9377461de7, type: 3}
+      propertyPath: pointPrefab
+      value: 
+      objectReference: {fileID: 1187418139662182668, guid: 100dd79883222124b99c7d4aa3b94002, type: 3}
+    - target: {fileID: 2592130807132014388, guid: 66be3299a571d7c408433b9377461de7, type: 3}
+      propertyPath: pointPrefab
+      value: 
+      objectReference: {fileID: 1187418139662182668, guid: 100dd79883222124b99c7d4aa3b94002, type: 3}
     - target: {fileID: 3917788450915716513, guid: 66be3299a571d7c408433b9377461de7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12596497
@@ -2194,6 +2209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 7910695286084739009, guid: 66be3299a571d7c408433b9377461de7, type: 3}
+      propertyPath: pointPrefab
+      value: 
+      objectReference: {fileID: 1187418139662182668, guid: 100dd79883222124b99c7d4aa3b94002, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

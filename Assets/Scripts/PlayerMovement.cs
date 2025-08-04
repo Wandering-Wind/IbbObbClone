@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Transform startPt;
     private Transform currentPt;
 
+    [Header("Point System")]
+    [Space(5)]
+    private int score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +115,18 @@ public class PlayerMovement : MonoBehaviour
         {
            // print("Collided with enemy");
             this.gameObject.transform.position = currentPt.position;
+            if(score >= 5)
+            {
+                score -= 5;
+                print("Current score: " + score);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Point"))
+        {
+            score++;
+            print("Current score: "+  score);
+            Destroy(collision.gameObject);
         }
     }
 }
