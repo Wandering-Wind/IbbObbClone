@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Movement")]
+    [Space(5)]
     public Rigidbody2D rbPlayer;
     public Transform[] groundCheck;
     public LayerMask groundLayer;
@@ -14,10 +16,15 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
+    [Header("Checkpoint system")]
+    [Space(5)]
+    [SerializeField] public Transform startPt;
+    private Transform currentPt;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentPt = startPt;
     }
 
     // Update is called once per frame
@@ -91,5 +98,19 @@ public class PlayerMovement : MonoBehaviour
     {
         //function tells us when an action was triggered
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Checkpoint"))
+        {
+            currentPt = collision.gameObject.transform;
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+           // print("Collided with enemy");
+            this.gameObject.transform.position = currentPt.position;
+        }
     }
 }
