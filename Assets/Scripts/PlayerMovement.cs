@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,11 +27,15 @@ public class PlayerMovement : MonoBehaviour
     [Header("Point System")]
     [Space(5)]
     private int score;
+    //anim stuff
+    [Header("Animation Parameters")] [Space(5)]
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         currentPt = startPt;
+        //anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,6 +51,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        anim.SetFloat("xVelocity", rbPlayer.velocity.x);
+        anim.SetFloat("yVelocity", rbPlayer.velocity.y);
+        anim.SetBool("isJumping", !IsGrounded());
     }
 
     public void JumpWASD(InputAction.CallbackContext context)
@@ -84,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
                break;
             }
         }
+        //anim stuff
+        //anim.SetBool("isJumping", !bGrounded);
         return bGrounded;
     }
 
