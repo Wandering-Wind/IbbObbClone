@@ -1146,6 +1146,14 @@ PrefabInstance:
       propertyPath: otherPlayer
       value: 
       objectReference: {fileID: 437470582}
+    - target: {fileID: 3733066204176526427, guid: 49c120b456ad1a3499c8ca7d67c204b5, type: 3}
+      propertyPath: bluePlayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3733066204176526427, guid: 49c120b456ad1a3499c8ca7d67c204b5, type: 3}
+      propertyPath: greenPlayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 7712568112015168996, guid: 49c120b456ad1a3499c8ca7d67c204b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.890636
@@ -6069,6 +6077,14 @@ PrefabInstance:
       propertyPath: otherPlayer
       value: 
       objectReference: {fileID: 1425443410}
+    - target: {fileID: 6967361116677182363, guid: 76c45f72573b7fb4c8f01bc87a8b75ef, type: 3}
+      propertyPath: bluePlayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967361116677182363, guid: 76c45f72573b7fb4c8f01bc87a8b75ef, type: 3}
+      propertyPath: greenPlayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

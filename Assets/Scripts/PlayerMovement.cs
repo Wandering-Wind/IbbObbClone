@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
-    private float boostJump = 27f;
+    private float boostJump = 20f;
     private int currentLayer ;
     private LayerMask thisMask;
 
