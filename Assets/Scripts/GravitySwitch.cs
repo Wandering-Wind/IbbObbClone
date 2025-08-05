@@ -26,6 +26,8 @@ public class GravitySwitch : MonoBehaviour
             if(rb != null)
             {
                 rb.gravityScale *= -1;
+                //anim stuff
+                rb.GetComponent<SpriteRenderer>().flipY = !rb.GetComponent<SpriteRenderer>().flipY;
             }
         }
         
