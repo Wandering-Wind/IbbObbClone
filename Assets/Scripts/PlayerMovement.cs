@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rbPlayer;
     public Transform[] groundCheck;
     public LayerMask groundLayer;
-    //public Camera cam;
+    public LayerMask bluePlayer;
+    public LayerMask greenPlayer;
+   
 
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
+
+    private float boostJump = 20f;
+    private int currentLayer ;
+    private LayerMask thisMask;
 
     [Header("Checkpoint system")]
     [Space(5)]
@@ -27,16 +32,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Point System")]
     [Space(5)]
     private int score;
-    //anim stuff
-    [Header("Animation Parameters")] [Space(5)]
-    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         currentPt = startPt;
-        //cam = Camera.main;
-        //anim = GetComponent<Animator>();
+
+        currentLayer = gameObject.layer;
+        thisMask = 1<< currentLayer;
     }
 
     // Update is called once per frame
@@ -52,15 +55,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-    }
 
-    private void FixedUpdate()
-    {
-        anim.SetFloat("xVelocity", rbPlayer.velocity.x);
-        anim.SetFloat("yVelocity", rbPlayer.velocity.y);
-        anim.SetBool("isJumping", !IsGrounded());
-
-        //ClampToCameraBounds();
+        AssistedJump();
     }
 
     public void JumpWASD(InputAction.CallbackContext context)
@@ -92,16 +88,36 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         bool bGrounded = false;
-        for(int i = 0; i <= groundCheck.Length; i++)
+        for(int i = 0; i < groundCheck.Length; i++)
         {
             if (Physics2D.OverlapCircle(groundCheck[i].position, 0.2f, groundLayer)){
                 bGrounded = true; 
                break;
             }
         }
-        //anim stuff
-        //anim.SetBool("isJumping", !bGrounded);
         return bGrounded;
+    }
+
+    void AssistedJump()
+    {
+        for(int i = 0;i < groundCheck.Length;i++)
+        {
+            if (Physics2D.OverlapCircle(groundCheck[i].position, 0.2f, bluePlayer) && thisMask == LayerMask.GetMask("GreenPlayer"))
+            {
+                // bGrounded = true;
+                this.rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, boostJump * rbPlayer.gravityScale);
+                break;
+            }
+            else if (thisMask == LayerMask.GetMask("BluePlayer") && Physics2D.OverlapCircle(groundCheck[i].position, 0.2f, greenPlayer))
+            {
+                this.rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, boostJump * rbPlayer.gravityScale);
+                break;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 
     private void Flip()
@@ -150,20 +166,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /*private void ClampToCameraBounds()
-    {
-        float camHeight = cam.orthographicSize;
-        float camWidth = cam.aspect * camHeight;
-
-        float minX = cam.transform.position.x - camWidth;
-        float maxX = cam.transform.position.x + camWidth;
-        float minY = cam.transform.position.y - camHeight;
-        float maxY = cam.transform.position.y + camHeight;
-
-        Vector2 clampedPos = rbPlayer.position;
-        clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
-        clampedPos.y = Mathf.Clamp(clampedPos.y, minY, maxY);
-
-        rbPlayer.MovePosition(clampedPos);
-    }*/
+  
 }
