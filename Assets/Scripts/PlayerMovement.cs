@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rbPlayer;
     public Transform[] groundCheck;
     public LayerMask groundLayer;
+   
 
     private float horizontal;
     private float speed = 8f;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [Space(5)]
     [SerializeField] public Transform startPt;
     private Transform currentPt;
+    public GameObject otherPlayer;
 
     [Header("Point System")]
     [Space(5)]
@@ -115,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         {
            // print("Collided with enemy");
             this.gameObject.transform.position = currentPt.position;
+            otherPlayer.transform.position = currentPt.position;
             if(score >= 5)
             {
                 score -= 5;

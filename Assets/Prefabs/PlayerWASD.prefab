@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6696161155702407138}
   - component: {fileID: 4096438411400512946}
   - component: {fileID: 3733066204176526427}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerWASD
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -330,6 +330,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  startPt: {fileID: 0}
 --- !u!1 &7860760147338619185
 GameObject:
   m_ObjectHideFlags: 0

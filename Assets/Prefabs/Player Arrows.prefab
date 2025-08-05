@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 580602215256873947}
   - component: {fileID: 6967361116677182363}
   - component: {fileID: 2355256418350359798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Arrows
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -181,6 +181,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  startPt: {fileID: 0}
+  otherPlayer: {fileID: 2026672679068520785, guid: 49c120b456ad1a3499c8ca7d67c204b5, type: 3}
 --- !u!114 &2355256418350359798
 MonoBehaviour:
   m_ObjectHideFlags: 0

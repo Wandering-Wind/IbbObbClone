@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9057007203112084488}
   m_Layer: 0
   m_Name: Enemy1 (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correspondingEnemy: {fileID: 2405413850201924143}
+  pointPrefab: {fileID: 1187418139662182668, guid: 100dd79883222124b99c7d4aa3b94002, type: 3}
 --- !u!1 &6774029851447312787
 GameObject:
   m_ObjectHideFlags: 0
