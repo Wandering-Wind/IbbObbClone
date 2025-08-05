@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     //track both player positions
     public Transform playerWASD;
     public Transform playerArrows;
+    //public Rigidbody2D rbWASD;
+    //public Rigidbody2D rbArrows;
 
     public float maxFollowDistance = 15f;    // Max distance before stopping camera movement
     public float zoomDistanceThreshold = 8f; // Distance at which zoom starts
@@ -50,4 +52,27 @@ public class CameraController : MonoBehaviour
             // (Could flash a warning or limit player movement here too)
         }
     }
+
+    /*void ClampPlayerToCameraBounds()
+    {
+        float camHeight = cam.orthographicSize;
+        float camWidth = cam.aspect * camHeight;
+
+        float minX = transform.position.x - camWidth;
+        float maxX = transform.position.x + camWidth;
+        float minY = transform.position.y - camHeight;
+        float maxY = transform.position.y + camHeight;
+
+        // Clamp WASD player
+        Vector2 posWASD = rbWASD.position;
+        posWASD.x = Mathf.Clamp(posWASD.x, minX, maxX);
+        posWASD.y = Mathf.Clamp(posWASD.y, minY, maxY);
+        rbWASD.MovePosition(posWASD); // Safe for physics
+
+        // Clamp Arrow player
+        Vector2 posArrows = rbArrows.position;
+        posArrows.x = Mathf.Clamp(posArrows.x, minX, maxX);
+        posArrows.y = Mathf.Clamp(posArrows.y, minY, maxY);
+        rbArrows.MovePosition(posArrows);
+    }*/
 }

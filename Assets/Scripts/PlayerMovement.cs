@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rbPlayer;
     public Transform[] groundCheck;
     public LayerMask groundLayer;
-   
+    //public Camera cam;
 
     private float horizontal;
     private float speed = 8f;
@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         currentPt = startPt;
+        //cam = Camera.main;
         //anim = GetComponent<Animator>();
     }
 
@@ -58,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("xVelocity", rbPlayer.velocity.x);
         anim.SetFloat("yVelocity", rbPlayer.velocity.y);
         anim.SetBool("isJumping", !IsGrounded());
+
+        //ClampToCameraBounds();
     }
 
     public void JumpWASD(InputAction.CallbackContext context)
@@ -146,4 +149,21 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+    /*private void ClampToCameraBounds()
+    {
+        float camHeight = cam.orthographicSize;
+        float camWidth = cam.aspect * camHeight;
+
+        float minX = cam.transform.position.x - camWidth;
+        float maxX = cam.transform.position.x + camWidth;
+        float minY = cam.transform.position.y - camHeight;
+        float maxY = cam.transform.position.y + camHeight;
+
+        Vector2 clampedPos = rbPlayer.position;
+        clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
+        clampedPos.y = Mathf.Clamp(clampedPos.y, minY, maxY);
+
+        rbPlayer.MovePosition(clampedPos);
+    }*/
 }
