@@ -26,6 +26,7 @@ public class GravitySwitch : MonoBehaviour
             if(rb != null)
             {
                 rb.gravityScale *= -1;
+                print("Gravity Inverted");
             }
         }
         
