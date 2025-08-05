@@ -332,6 +332,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   startPt: {fileID: 0}
+  otherPlayer: {fileID: 0}
   anim: {fileID: 3696992407112048385}
 --- !u!95 &3696992407112048385
 Animator:
