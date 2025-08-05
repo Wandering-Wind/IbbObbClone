@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &5372877 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6773260042598144633, guid: 76c45f72573b7fb4c8f01bc87a8b75ef, type: 3}
+  m_PrefabInstance: {fileID: 1806058081}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &11034495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6418565634473903815, guid: 9837e2fc3c42a8c448707471718e1732, type: 3}
@@ -12946,6 +12951,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6127165831b911d43a3a66dd932a86f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerWASD: {fileID: 1995731956}
+  playerArrows: {fileID: 5372877}
+  maxFollowDistance: 15
+  zoomDistanceThreshold: 8
+  minZoom: 5
+  maxZoom: 10
+  cameraSpeed: 5
 --- !u!1 &799598984
 GameObject:
   m_ObjectHideFlags: 0
@@ -15567,6 +15579,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1995731956 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7712568112015168996, guid: 49c120b456ad1a3499c8ca7d67c204b5, type: 3}
+  m_PrefabInstance: {fileID: 1006968590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2010810471
 PrefabInstance:
   m_ObjectHideFlags: 0
