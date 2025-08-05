@@ -10,12 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rbPlayer;
     public Transform[] groundCheck;
     public LayerMask groundLayer;
+    public LayerMask bluePlayer;
+    public LayerMask greenPlayer;
    
 
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
+
+    private float boostJump = 27f;
+    private int currentLayer ;
+    private LayerMask thisMask;
 
     [Header("Checkpoint system")]
     [Space(5)]
@@ -31,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         currentPt = startPt;
+
+        currentLayer = gameObject.layer;
+        thisMask = 1<< currentLayer;
     }
 
     // Update is called once per frame
@@ -46,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        AssistedJump();
     }
 
     public void JumpWASD(InputAction.CallbackContext context)
@@ -77,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         bool bGrounded = false;
-        for(int i = 0; i <= groundCheck.Length; i++)
+        for(int i = 0; i < groundCheck.Length; i++)
         {
             if (Physics2D.OverlapCircle(groundCheck[i].position, 0.2f, groundLayer)){
                 bGrounded = true; 
@@ -85,6 +96,28 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return bGrounded;
+    }
+
+    void AssistedJump()
+    {
+        for(int i = 0;i < groundCheck.Length;i++)
+        {
+            if (Physics2D.OverlapCircle(groundCheck[i].position, 0.2f, bluePlayer) && thisMask == LayerMask.GetMask("GreenPlayer"))
+            {
+                // bGrounded = true;
+                this.rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, boostJump * rbPlayer.gravityScale);
+                break;
+            }
+            else if (thisMask == LayerMask.GetMask("BluePlayer") && Physics2D.OverlapCircle(groundCheck[i].position, 0.2f, greenPlayer))
+            {
+                this.rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, boostJump * rbPlayer.gravityScale);
+                break;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 
     private void Flip()
@@ -132,4 +165,6 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+  
 }

@@ -670,7 +670,14 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  bluePlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  greenPlayer:
+    serializedVersion: 2
+    m_Bits: 0
   startPt: {fileID: 0}
+  otherPlayer: {fileID: 0}
 --- !u!114 &923067295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,7 +1449,14 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  bluePlayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  greenPlayer:
+    serializedVersion: 2
+    m_Bits: 256
   startPt: {fileID: 0}
+  otherPlayer: {fileID: 0}
 --- !u!114 &1286679413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,7 +1737,14 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  bluePlayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  greenPlayer:
+    serializedVersion: 2
+    m_Bits: 256
   startPt: {fileID: 0}
+  otherPlayer: {fileID: 0}
 --- !u!50 &1517753961
 Rigidbody2D:
   serializedVersion: 4
