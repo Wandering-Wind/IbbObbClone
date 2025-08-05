@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     [Space(5)]
     private int score;
 
+    [Header("Animation Parameters")] [Space(5)]
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
         currentLayer = gameObject.layer;
         thisMask = 1<< currentLayer;
+    }
+
+    private void FixedUpdate()
+    {
+        anim.SetFloat("xVelocity", rbPlayer.velocity.x);
     }
 
     // Update is called once per frame
