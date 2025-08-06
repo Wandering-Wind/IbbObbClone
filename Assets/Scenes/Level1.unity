@@ -18469,10 +18469,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerWASD: {fileID: 2062890725}
   playerArrows: {fileID: 527867985}
-  maxFollowDistance: 15
-  zoomDistanceThreshold: 8
-  minZoom: 5
-  maxZoom: 10
+  maxFollowDistance: 30
+  zoomDistanceThreshold: 25
+  minZoom: 10
+  maxZoom: 20
   cameraSpeed: 5
 --- !u!1 &796473116
 GameObject:

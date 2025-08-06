@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
 
     public float maxFollowDistance = 15f;    // Max distance before stopping camera movement
     public float zoomDistanceThreshold = 8f; // Distance at which zoom starts
-    public float minZoom = 5f;               // Closest zoom
-    public float maxZoom = 10f;              // Max zoom out
+    public float minZoom = 8f;               // Closest zoom
+    public float maxZoom = 15f;              // Max zoom out
     public float cameraSpeed = 5f;           // Smooth speed
 
     private Camera cam;
